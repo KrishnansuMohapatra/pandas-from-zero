@@ -1,0 +1,28 @@
+# 🐼 Lesson 2 — Reading CSV Files
+
+In this lesson, you'll learn how to load a CSV file using Pandas and
+convert it into a DataFrame.
+
+🎥 This lesson is part of the **Pandas From Zero** series by
+**KrishnansuCodes**.
+
+---
+
+## 🎯 What You'll Learn
+
+- What a CSV file is
+- How to import Pandas
+- How to read a CSV file
+- What a DataFrame is
+- How to inspect your dataset
+- How to check rows and columns
+
+---
+
+## 📦 Installation
+
+If Pandas isn't installed:
+
+```bash
+pip install pandas
+
