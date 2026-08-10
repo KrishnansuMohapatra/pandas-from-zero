@@ -18,3 +18,25 @@ It is commonly used for:
 
 ```bash
 pip install pandas
+First Example
+import pandas as pd
+
+data = {
+    "Name": ["A", "B", "C"],
+    "Score": [85, 92, 78]
+}
+
+df = pd.DataFrame(data)
+
+print(df)
+What is a DataFrame?
+A DataFrame is a table-like structure containing rows and columns.
+Think of it like a spreadsheet—but programmable with Python.
+🎯 Challenge
+Create a DataFrame containing:
+5 students
+Their marks
+Their subjects
+Then calculate the average mark.
+🎥 Tutorial
+Follow the Pandas series on @KrishnansuCodes.
