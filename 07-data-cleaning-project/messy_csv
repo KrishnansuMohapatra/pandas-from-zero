@@ -1,0 +1,12 @@
+Order_ID,Product,City,Sales,Quantity
+1001,Laptop,Bhubaneswar,75000,1
+1002,Phone,Cuttack,45000,2
+1003,Tablet,Bhubaneswar,,3
+1004,Monitor,Puri,25000,1
+1005,Keyboard,Cuttack,12000,2
+1005,Keyboard,Cuttack,12000,2
+1006,Mouse,Bhubaneswar,8000,
+1007,laptop,bhubaneswar,75000,1
+1008,Phone,Cuttack,-5000,1
+1009,Tablet,Bhubaneswar,30000,2
+1010,Monitor,Puri,25000,1
