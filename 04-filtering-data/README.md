@@ -1,52 +1,59 @@
 # 🐼 Lesson 4 — Filtering Data
 
-In this lesson, you'll learn how to filter rows in a Pandas DataFrame based on conditions.
+Now we can select data. The next question is:
+
+> **What if I only want the rows that match a condition?**
+
+That's filtering.
 
 ## 🎯 What You'll Learn
 
-- Filter rows using a condition
+- Filter rows using conditions
 - Filter numerical values
 - Filter text values
 - Combine conditions
-- Use `&` and `|` with Pandas conditions
+- Use `&` when both conditions must be true
+- Use `|` when either condition can be true
 
----
-
-## 1️⃣ Filter Rows by Sales
+## 1️⃣ Filter by Sales
 
 ```python
 df[df["Sales"] > 30000]
 ```
 
-This returns only rows where Sales is greater than 30,000.
+This keeps only rows where Sales is greater than 30,000.
 
----
-
-## 2️⃣ Filter Rows by City
+## 2️⃣ Filter by City
 
 ```python
 df[df["City"] == "Bhubaneswar"]
 ```
 
-This returns only rows where the City is Bhubaneswar.
-
----
+This keeps only rows where City is Bhubaneswar.
 
 ## 3️⃣ Combine Conditions
 
-Use `&` when both conditions must be true.
+Use `&` when **both** conditions must be true.
 
 ```python
-df[(df["Sales"] > 20000) & (df["City"] == "Bhubaneswar")]
+df[
+    (df["Sales"] > 20000) &
+    (df["City"] == "Bhubaneswar")
+]
 ```
 
-Use `|` when either condition can be true.
+Use `|` when **either** condition can be true.
 
 ```python
-df[(df["City"] == "Bhubaneswar") | (df["City"] == "Cuttack")]
+df[
+    (df["City"] == "Bhubaneswar") |
+    (df["City"] == "Cuttack")
+]
 ```
 
----
+### ⚠️ Remember
+
+Put each condition inside parentheses when using `&` or `|`.
 
 ## 🧪 Complete Example
 
@@ -70,14 +77,18 @@ print(
 )
 ```
 
----
-
 ## 🧠 Key Idea
 
 Filtering means asking Pandas:
 
-> "Show me only the rows that satisfy this condition."
+> **Show me only the rows that satisfy this condition.**
 
 ```python
 df[condition]
 ```
+
+This is where a DataFrame starts becoming something we can investigate instead of just display.
+
+## 🚀 Next
+
+Next we'll learn **aggregation** — turning many sales values into useful numbers such as total, average, minimum and maximum.
