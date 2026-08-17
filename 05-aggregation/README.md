@@ -1,14 +1,10 @@
 # 🐼 Lesson 5 — Aggregation
 
-Aggregation means reducing multiple values into a single useful result.
+Sometimes a dataset has hundreds or thousands of values, but we need only a few numbers to understand it.
 
-For example:
+That's where **aggregation** comes in.
 
-- What is the total sales?
-- What is the average sale?
-- What is the highest sale?
-- What is the lowest sale?
-- How many sales records do we have?
+Aggregation reduces many values into a useful summary.
 
 ## 🎯 What You'll Learn
 
@@ -21,69 +17,73 @@ For example:
 - `std()`
 - `describe()`
 
-## 1️⃣ Sum
+## 1️⃣ Total — `sum()`
 
 ```python
 df["Sales"].sum()
 ```
 
-Find the total sales.
+Answers:
 
-## 2️⃣ Mean
+> How much did we sell in total?
+
+## 2️⃣ Average — `mean()`
 
 ```python
 df["Sales"].mean()
 ```
 
-Find the average sales.
+Answers:
 
-## 3️⃣ Median
+> What is the average sale?
+
+## 3️⃣ Middle Value — `median()`
 
 ```python
 df["Sales"].median()
 ```
 
-Find the middle sales value.
+The median is the middle value after the values are ordered.
 
-## 4️⃣ Minimum
+## 4️⃣ Smallest and Largest
 
 ```python
 df["Sales"].min()
-```
-
-Find the smallest sale.
-
-## 5️⃣ Maximum
-
-```python
 df["Sales"].max()
 ```
 
-Find the largest sale.
+These find the lowest and highest values.
 
-## 6️⃣ Count
+## 5️⃣ Count — `count()`
 
 ```python
 df["Sales"].count()
 ```
 
-Count the number of non-empty Sales values.
+Counts the non-empty values in the column.
 
-## 7️⃣ Standard Deviation
+## 6️⃣ Spread — `std()`
 
 ```python
 df["Sales"].std()
 ```
 
-Measure how spread out the sales values are.
+Standard deviation gives us an idea of how spread out the values are.
 
-## 8️⃣ Describe
+## 7️⃣ Quick Summary — `describe()`
 
 ```python
 df["Sales"].describe()
 ```
 
-Get several statistics at once, including count, mean, standard deviation, minimum, percentiles, and maximum.
+This gives several useful statistics together:
+
+- Count
+- Mean
+- Standard deviation
+- Minimum
+- Percentiles
+- Maximum
 
 ## 🧪 Complete Example
 
@@ -106,22 +106,18 @@ print(df["Sales"].describe())
 
 ## 🧠 Key Idea
 
-Aggregation turns many values into a useful summary.
-
 ```text
 Many values
      ↓
 Aggregation
      ↓
-Useful statistic
+Useful summary
 ```
 
-For example:
+Aggregation is useful because it turns raw numbers into something we can reason about.
 
-```python
-df["Sales"].sum()
-```
+## 🚀 Next
 
-answers:
+Next we'll combine aggregation with **GroupBy** to answer questions such as:
 
-> "How much did we sell in total?"
+> Which city generated the most sales?
