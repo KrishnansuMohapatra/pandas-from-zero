@@ -1,60 +1,88 @@
 # 🐼 Lesson 6 — GroupBy
 
-`groupby()` lets us split data into groups and then perform calculations on each group.
+Aggregation answers questions about the whole dataset.
 
-For example:
+But what if we want the same calculation **for each city, product or category?**
 
-> How much did each city sell?
-
-Instead of calculating everything together, we can group the data by `City`.
+That's where `groupby()` becomes useful.
 
 ## 🎯 What You'll Learn
 
-- `groupby()`
+- What `groupby()` does
 - Grouping by one column
-- Aggregating grouped data
+- Combining `groupby()` with aggregation
 - `sum()`
 - `mean()`
 - `count()`
-- `max()`
-- `min()`
+- `min()` and `max()`
 - `agg()`
+- Finding the best group with `idxmax()`
 
-## 1️⃣ Basic GroupBy
+## 🧠 The GroupBy Idea
 
-Group sales by city:
+Think about it as:
+
+```text
+Dataset
+   ↓
+Split into groups
+   ↓
+Calculate something for each group
+   ↓
+Compare the results
+```
+
+For example:
 
 ```python
 df.groupby("City")["Sales"].sum()
 ```
 
-This calculates the total sales for each city.
+means:
 
-## 2️⃣ GroupBy + Mean
+> Group the rows by City, take Sales, and calculate the total for each city.
 
-Find the average sale for each city:
+## 1️⃣ Total Sales by City
+
+```python
+df.groupby("City")["Sales"].sum()
+```
+
+## 2️⃣ Average Sales by City
 
 ```python
 df.groupby("City")["Sales"].mean()
 ```
 
-## 3️⃣ GroupBy + Count
-
-Count the number of sales records for each city:
+## 3️⃣ Count Records by City
 
 ```python
 df.groupby("City")["Sales"].count()
 ```
 
-## 4️⃣ Multiple Aggregations
+Remember that `count()` counts non-empty values. If you specifically want the number of orders, counting an order ID is often clearer:
 
-We can calculate multiple statistics:
+```python
+df.groupby("City")["Order_ID"].count()
+```
+
+## 4️⃣ Multiple Statistics with `agg()`
 
 ```python
 df.groupby("City")["Sales"].agg(
     ["sum", "mean", "min", "max", "count"]
 )
 ```
+
+## 5️⃣ Find the Best City
+
+After calculating total sales by city, we can find the city with the largest total:
+
+```python
+df.groupby("City")["Sales"].sum().idxmax()
+```
+
+`idxmax()` returns the label belonging to the largest value.
 
 ## 🧪 Complete Example
 
@@ -69,8 +97,8 @@ print(df.groupby("City")["Sales"].sum())
 print("\nAverage sales by city:")
 print(df.groupby("City")["Sales"].mean())
 
-print("\nNumber of sales by city:")
-print(df.groupby("City")["Sales"].count())
+print("\nNumber of orders by city:")
+print(df.groupby("City")["Order_ID"].count())
 
 print("\nSales statistics by city:")
 print(
@@ -80,37 +108,18 @@ print(
 )
 ```
 
-## 🧠 Key Idea
-
-Think of `groupby()` like this:
-
-```text
-Dataset
-   ↓
-Split into groups
-   ↓
-Calculate something
-   ↓
-Get results for each group
-```
-
-For example:
-
-```python
-df.groupby("City")["Sales"].sum()
-```
-
-means:
-
-> Group the rows by City, select Sales, and calculate the total for each city.
-
 ## 🔥 Why GroupBy Matters
 
-Real-world data analysis often asks questions like:
+Real data analysis often asks questions like:
 
-- Which city has the highest sales?
+- Which city has the highest revenue?
 - What is the average sale in each city?
 - How many orders came from each city?
-- Which product category generates the most revenue?
+- Which product sells the most?
+- Which category generates the most revenue?
 
-`groupby()` is one of the most useful Pandas tools for answering these questions.
+`groupby()` helps turn these business questions into data questions.
+
+## 🚀 Next
+
+The next step is a **Data Cleaning Project**, where we'll work with deliberately messy data and decide what actually needs to be cleaned.
