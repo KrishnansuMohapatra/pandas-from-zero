@@ -1,16 +1,16 @@
 # 🛒 Pandas Project 1 — Sales Investigation
 
-A beginner-friendly Pandas mini project that turns a small sales dataset into a simple business insight.
+This is a small beginner project where I use Pandas to answer one simple business question:
 
-## 🎯 Project Question
+> **Which one is our biggest sale, and what product and city produced it?**
 
-> Which one is our biggest sale, and what product and city produced it?
+The project is intentionally small. The goal is to practice turning a question into a few lines of Pandas code.
 
 ## 📁 Files
 
 - `sales.csv` — the sales dataset
-- `analysis.py` — guided analysis
-- `practice.py` — challenge for you to solve
+- `analysis.py` — the completed investigation
+- `practice.py` — a similar challenge to solve yourself
 
 ## 🧠 Concepts Used
 
@@ -18,40 +18,55 @@ A beginner-friendly Pandas mini project that turns a small sales dataset into a 
 - Selecting a column with `df["Sales"]`
 - `max()`
 - `idxmax()`
-- `.loc[]` for selecting a row and columns
+- `.loc[]`
 
-## 🔎 Analysis
+## 🔎 Investigation
+
+First, find the largest sale:
 
 ```python
-import pandas as pd
-
-df = pd.read_csv("sales.csv")
-
-# Find the highest sale
 highest_sale = df["Sales"].max()
-print("Highest Sale:", highest_sale)
-
-# Find the row containing the highest sale
-result = df.loc[df["Sales"].idxmax(), ["Product", "City", "Sales"]]
-print(result)
 ```
 
-## 💡 Insight
+Then find the row containing that sale:
+
+```python
+result = df.loc[
+    df["Sales"].idxmax(),
+    ["Product", "City", "Sales"]
+]
+```
+
+## 💡 Result
 
 The biggest individual sale in this dataset is a **Laptop** sale in **Bhubaneswar** worth **₹75,000**.
 
-## 🧪 Challenge
+## 🧪 Practice Challenge
 
-Find the **smallest sale**.
+Open `practice.py` and find the **smallest sale**.
 
-Answer these three questions:
+Answer:
 
 1. Which product?
 2. Which city?
 3. How much?
 
-Try solving it yourself before checking the solution.
+Try it yourself before looking for help.
 
-## 🚀 Learning Goal
+## 🎯 Learning Goal
 
-The goal is not just to learn Pandas syntax. It is to practice asking questions about data and turning the answers into useful insights.
+The point of this project isn't the size of the dataset.
+
+It's learning to go from:
+
+```text
+Question
+   ↓
+Pandas operation
+   ↓
+Result
+   ↓
+Simple insight
+```
+
+This same process becomes much more useful when we work with larger datasets.
